@@ -1,0 +1,157 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta http-equiv = "Content-Type" content = "text/html; charset=utf-8"/>-->
+<!--<meta name = "viewport" content = "initial-scale=1.0, user-scalable=no"/>-->
+<!--<style type = "text/css">-->
+<!--body, html, #allmap { width: 100%; height: 100%; overflow: hidden; margin: 0; font-family: "微软雅黑"; }-->
+
+<!--#l-map { height: 100%; width: 78%; float: left; border-right: 2px solid #bcbcbc; }-->
+
+<!--#r-result { height: 100%; width: 20%; float: left; }-->
+<!--</style>-->
+<!--<script type = "text/javascript"-->
+<!--src = "http://api.map.baidu.com/api?v=2.0&ak=xMornj4B2rR8YoA6ngkD7Gc0nqu5XZjf"></script>-->
+<!--<script src = "http://code.jquery.com/jquery-2.1.4.min.js"></script>-->
+<!--<title>添加多个标注点</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id = "allmap"></div>-->
+<!--</body>-->
+<!--</html>-->
+<!--<script type = "text/javascript">-->
+<!--// 百度地图API功能-->
+<!--var map = new BMap.Map("allmap");-->
+<!--var point = new BMap.Point(104.658146, 31.516246);-->
+<!--map.centerAndZoom(point, 15);-->
+<!--// 编写自定义函数,创建标注-->
+<!--function addMarker(point) {-->
+<!--var marker = new BMap.Marker(point);-->
+<!--map.addOverlay(marker);-->
+<!--}-->
+<!--$.ajax({-->
+<!--type: "POST",-->
+<!--url: "http://125.65.45.165/drug/public/app/Map/get_nearby_shop",-->
+<!--data: {-->
+<!--coord_x: 104.658146,-->
+<!--coord_y: 31.516246-->
+<!--},-->
+<!--success: function (data) {-->
+<!--console.log(data);-->
+<!--var array = data.data;-->
+<!--//            var a1       = new Array();-->
+<!--//            a1['shop_x'] = array['minX'];-->
+<!--//            a1['shop_y'] = array['minY'];-->
+<!--//            var a2       = new Array();-->
+<!--//            a2['shop_x'] = array['minX'];-->
+<!--//            a2['shop_y'] = array['maxY'];-->
+<!--//-->
+<!--//            var a3       = new Array();-->
+<!--//            a3['shop_x'] = array['maxX'];-->
+<!--//            a3['shop_y'] = array['maxY'];-->
+<!--//-->
+<!--//            var a4       = new Array();-->
+<!--//            a4['shop_x'] = array['maxX'];-->
+<!--//            a4['shop_y'] = array['minY'];-->
+<!--//-->
+<!--//            var aaa = new Array();-->
+<!--//            aaa[0]  = a1;-->
+<!--//            aaa[1]  = a2;-->
+<!--//            aaa[2]  = a3;-->
+<!--//            aaa[3]  = a4;-->
+<!--//            console.log(aaa);-->
+
+
+<!--for (var i = 0; i < array.length; i++) {-->
+<!--var point = new BMap.Point(array[i]['shop_x'], array[i]['shop_y']);-->
+<!--addMarker(point);-->
+<!--}-->
+<!--}-->
+<!--});-->
+<!--map.addEventListener("click", function (e) {-->
+<!--alert(e.point.lng + "," + e.point.lat);-->
+<!--});-->
+<!--//    var myDis = new BMapLib.DistanceTool(map);-->
+<!--//    map.addEventListener("load",function(){-->
+<!--//        myDis.open();  //开启鼠标测距-->
+<!--//        myDis.close();  //关闭鼠标测距大-->
+<!--//    });-->
+<!--map.enableScrollWheelZoom(true);-->
+
+<!--</script>-->
+
+
+<!--&lt;!&ndash;<html>&ndash;&gt;-->
+<!--&lt;!&ndash;<head></head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<form action = "http://125.65.45.165/drug/public/app/User/upload_head_img" method = "POST"&ndash;&gt;-->
+<!--&lt;!&ndash;enctype = "multipart/form-data">&ndash;&gt;-->
+<!--&lt;!&ndash;<input name = "head_img" type = "file" value = "" multiple = 'multiple'/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<br/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<input name = "user_id" type = "text" value = "5"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<input type = "submit" value = "提交"/>&ndash;&gt;-->
+<!--&lt;!&ndash;</form>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+
+
+<html>
+<head>
+    <script src = "http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+
+<body>
+<div id = "div" style = "height: 40px;width: 80px;background: red"></div>
+
+</body>
+<script type = "text/javascript">
+    (function () {
+        $('#div').click(function () {
+
+            $.ajax({
+                type: "POST",
+                url: "http://125.65.45.165/drug/public/app/Medic/aliReturn",
+                data: {
+                    "gmt_create": "2018-01-23 11:02:48",
+                    "charset": "UTF-8",
+                    "seller_email": "2541975869@qq.com",
+                    "subject": "强力枇杷露",
+                    "sign": "m4lwIxQ0WeoPCI0GS4a3MXG7Cb8YF/mP0bsePUos1mu/Ja2+KSX4Zakg2QrVlOmHmORCH6B+yvrkDB+bg+WKqv9e4xxMP8D8mMUCPNizF9rJHYBCsa9Wpb7N3cS/lOKYAmRG30HRWw+YcoHtSzUYBqKhI7THO6YjGW+3L9UugJRLYg9wETmuvU/0JHBlZ8EWGBoGGQcnK+vIo7YFWvMyiF9XT2PdPJ8ypgBqYAdv2+LonBWE//56SbBC3bPCz2TmChPt/MLHYkfhZJgBRRycdkvnuYvPrCJVV8ofcwjHoLDoE+3QxG0XpPpUyE3hdIVU5hu3PwfkdGgQe7m9U5iEsw==",
+                    "body": "强力枇杷露",
+                    "buyer_id": "2088422811004231",
+                    "invoice_amount": "0.01",
+                    "notify_id": "e62b0a29e41d4db1f74711d560c4210hs1",
+                    "fund_bill_list": "[{'amount':'0.01','fundChannel':'ALIPAYACCOUNT'}]",
+                    "notify_type": "trade_status_sync",
+                    "trade_status": "TRADE_SUCCESS",
+                    "receipt_amount": "0.01",
+                    "app_id": "2017111509946295",
+                    "buyer_pay_amount": "0.01",
+                    "sign_type": "RSA2",
+                    "seller_id": "2088721458845251",
+                    "gmt_payment": "2018-01-23 11:02:48",
+                    "notify_time": "2018-01-23 11:02:48",
+                    "version": "1.0",
+                    "out_trade_no": "200118",
+                    "total_amount": "0.01",
+                    "trade_no": "2018012321001004230509339997",
+                    "auth_app_id": "2017111509946295",
+                    "buyer_logon_id": "134****2973",
+                    "point_amount": "0.00"
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        })
+
+    })
+    ();
+
+</script>
+</html>
